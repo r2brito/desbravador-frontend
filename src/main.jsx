@@ -6,6 +6,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import App from './App.jsx'
 import './index.css'
 import './styles/theme.css'
+import { initFirebaseAnalytics } from './services/firebase'
+
+void initFirebaseAnalytics()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

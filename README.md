@@ -29,6 +29,10 @@ npm run dev
 
 Acesse: `http://localhost:5173`
 
+## Demo online
+
+Acesse a aplicacao publicada em producao: [https://desbravador-desafio.web.app](https://desbravador-desafio.web.app)
+
 ## Variaveis de ambiente
 
 Crie um arquivo `.env.local` a partir do `.env.example`:
@@ -36,6 +40,8 @@ Crie um arquivo `.env.local` a partir do `.env.example`:
 ```bash
 cp .env.example .env.local
 ```
+
+Preencha no `.env.local` as variaveis `VITE_FIREBASE_*` com os dados do projeto Firebase.
 
 ## Estrutura do projeto
 
@@ -84,7 +90,29 @@ npm run build
 
 ## Deploy
 
-Projeto preparado para deploy na Vercel com build de Vite.
+Deploy configurado para Firebase Hosting.
+
+1. Fazer login no Firebase CLI:
+
+```bash
+npm run firebase:login
+```
+
+2. Garantir que o arquivo `.env.local` tenha as variaveis `VITE_FIREBASE_*`.
+
+3. Publicar no hosting:
+
+```bash
+npm run firebase:deploy
+```
+
+4. Para validar localmente antes do deploy:
+
+```bash
+npm run firebase:serve
+```
+
+Obs.: o arquivo `firebase.json` ja possui rewrite de SPA (`** -> /index.html`) para funcionar com React Router.
 
 ## Screenshots
 
