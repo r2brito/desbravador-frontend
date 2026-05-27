@@ -18,13 +18,13 @@ describe('firebase bootstrap', () => {
     vi.clearAllMocks()
   })
 
-  it('nao inicializa analytics fora do browser', async () => {
+  it('não inicializa analytics quando analytics não é suportado', async () => {
     const module = await import('./firebase')
 
     const analytics = await module.initFirebaseAnalytics()
 
     expect(analytics).toBeNull()
-    expect(mockIsSupported).not.toHaveBeenCalled()
+    expect(mockIsSupported).toHaveBeenCalledTimes(1)
     expect(mockGetAnalytics).not.toHaveBeenCalled()
   })
 })
